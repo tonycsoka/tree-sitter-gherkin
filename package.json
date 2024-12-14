@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.5",
+    "prebuildify": "^6.0.0"
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "test": "tree-sitter test",
+    "build": "tree-sitter generate && node-gyp build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "types": "bindings/node",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.gherkin",
+      "injection-regex": "^gherkin$"
+    }
+  ]
+}
