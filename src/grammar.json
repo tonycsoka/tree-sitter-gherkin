@@ -13,13 +13,6 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_comment"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
             "name": "tag"
           }
         },
@@ -460,34 +453,21 @@
         ]
       }
     },
-    "_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\n|\\r"
-        }
-      ]
-    },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_literal"
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
           }
-        }
-      ]
+        ]
+      }
     },
     "_literal": {
       "type": "PATTERN",
@@ -861,6 +841,10 @@
     }
   },
   "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
     {
       "type": "PATTERN",
       "value": "\\s"

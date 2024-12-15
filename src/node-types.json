@@ -92,11 +92,6 @@
     }
   },
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "description",
     "named": true,
     "fields": {}
@@ -169,10 +164,6 @@
       "types": [
         {
           "type": "background",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -503,10 +494,6 @@
     "named": false
   },
   {
-    "type": "#",
-    "named": false
-  },
-  {
     "type": "And",
     "named": false
   },
@@ -557,6 +544,10 @@
   {
     "type": "When",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "name",

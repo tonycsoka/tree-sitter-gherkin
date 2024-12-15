@@ -4,12 +4,13 @@
 module.exports = grammar({
   name: "gherkin",
 
+  extras: ($) => [$.comment, /\s/],
+
   rules: {
     source_file: ($) => $.feature,
 
     feature: ($) =>
       seq(
-        repeat($._comment),
         repeat($.tag),
         "Feature:",
         " ",
@@ -81,9 +82,7 @@ module.exports = grammar({
 
     action: ($) => repeat1(choice($._literal, $._var)),
 
-    _comment: ($) => seq($.comment, /\n|\r/),
-
-    comment: ($) => seq("#", repeat1($._literal)),
+    comment: (_) => token(seq("#", /.*/)),
 
     _literal: ($) => /[A-z\-_,\.\']+/,
 
